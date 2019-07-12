@@ -1,0 +1,70 @@
+<h1>{{ route.name }}</h1>
+{{ route.crag.name }}
+{{ route.description }}
+
+
+{% if route.namestory_set %}
+    <table id="stories">
+        {% for name_story in route.namestory_set.all %}
+            {% if name_story.isValidated %}
+            <tr>
+                <td>{{ name_story.story }}</td>
+                <td><a href="{% url 'stories:name_story_detail' name_story.id %}">detail</a></td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="/climbers?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/climbers?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% else %}
+    <p>No Stories found found!!! :(</p>
+{% endif %}
+
+{% if route.anecdote_set %}
+    <table id="anecdotes">
+        {% for anecdote in route.anecdote_set.all %}
+            {% if anecdote.isValidated %}
+            <tr>
+                <td>{{ anecdote.story }}</td>
+                <td><a href="{% url 'stories:anecdote_detail' anecdote.id %}">detail</a></td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="/climbers?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/climbers?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% else %}
+    <p>No Anecdotes found!!! :(</p>
+{% endif %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+</form>
