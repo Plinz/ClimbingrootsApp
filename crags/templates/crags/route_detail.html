@@ -9,7 +9,7 @@
             {% if name_story.isValidated %}
             <tr>
                 <td>{{ name_story.story }}</td>
-                <td><a href="{% url 'stories:name_story_detail' name_story.id %}">detail</a></td>
+                <td><a href="{% url 'crags:name_story_detail' name_story.id %}">detail</a></td>
             </tr>
             {% endif %}
         {% endfor %}
@@ -40,7 +40,7 @@
             {% if anecdote.isValidated %}
             <tr>
                 <td>{{ anecdote.story }}</td>
-                <td><a href="{% url 'stories:anecdote_detail' anecdote.id %}">detail</a></td>
+                <td><a href="{% url 'crags:anecdote_detail' anecdote.id %}">detail</a></td>
             </tr>
             {% endif %}
         {% endfor %}

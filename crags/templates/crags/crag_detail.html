@@ -6,7 +6,7 @@
         {% for route in route_list %}
             <tr>
                 <td>{{ route.name }}</td>
-                <td><a href="{% url 'crags:route_detail' crag.id route.id %}">detail</a></td>
+                <td><a href="{% url 'crags:route_index' crag.id route.id %}">detail</a></td>
             </tr>
         {% endfor %}
     </table>

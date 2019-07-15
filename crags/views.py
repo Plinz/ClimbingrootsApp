@@ -1,5 +1,5 @@
 from django.views import generic
-from .models import Crag, Route
+from .models import Crag, Route, NameStory, Anecdote
 
 
 class IndexCragView(generic.ListView):
@@ -23,6 +23,32 @@ class DetailRouteView(generic.DetailView):
     model = Route
 
 
-class ResultsView(generic.DetailView):
+class IndexRouteView(generic.DetailView):
+    model = Route
+    template_name = 'crags/route_index.html'
+
+
+class ResultsCragView(generic.DetailView):
     model = Crag
     template_name = 'crags/detail.html'
+
+
+class IndexAnecdoteView(generic.ListView):
+    model = Anecdote
+    template_name = 'crags/index.html'
+    context_object_name = 'anecdote_list'
+    paginate_by = 15
+
+
+class DetailAnecdoteView(generic.DetailView):
+    model = Anecdote
+
+
+class CreateAnecdoteView(generic.TemplateView):
+    model = Anecdote
+    template_name = 'crags/anecdote_create.html'
+
+
+class DetailNameStoryView(generic.DetailView):
+    model = NameStory
+#   template_name = 'stories/name_story_detail.html'
