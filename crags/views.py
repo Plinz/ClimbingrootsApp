@@ -4,15 +4,22 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django import forms
 from .models import Crag, Route, NameStory, Anecdote
+from crags.enums import RouteType, Grade
+from django_countries.fields import CountryField
+
+
+class HomeView(generic.TemplateView):
+    template_name = 'crags/home.html'
 
 
 class IndexCragView(generic.ListView):
     model = Crag
-    paginate_by = 15
+    template_name = 'crags/crag_index.html'
 
 
 class DetailCragView(generic.DetailView):
     model = Crag
+    template_name = 'crags/crag_detail.html'
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -23,13 +30,9 @@ class DetailCragView(generic.DetailView):
         return context
 
 
-class DetailRouteView(generic.DetailView):
-    model = Route
-
-
 class IndexRouteView(generic.DetailView):
     model = Route
-    template_name = 'crags/route_index.html'
+    template_name = 'crags/route_detail.html'
 
 
 class ResultsCragView(generic.DetailView):
@@ -63,17 +66,82 @@ class AnecdoteForm(forms.Form):
     source = forms.CharField(label='Source', max_length=500)
 
 
+class NameStoryForm(forms.Form):
+    story = forms.CharField(label='Histoire', max_length=5000, widget=forms.Textarea)
+    source = forms.CharField(label='Source', max_length=500)
+
+
+class CragForm(forms.Form):
+    name = forms.CharField(label='Nom', max_length=500)
+    country = CountryField().formfield()
+
+
+class RouteForm(forms.Form):
+    name = forms.CharField(label='Nom', max_length=500)
+    type = forms.ChoiceField(label='Type', choices=RouteType.choices())
+    description = forms.CharField(label='Description', max_length=5000, widget=forms.Textarea)
+    openIn = forms.DateField(label='Date d\'ouverture', widget=forms.SelectDateWidget)
+    faIn = forms.DateField(label='Date de première ascension', widget=forms.SelectDateWidget)
+
+
 def add_anecdote_view(request, pk_crag, pk_route):
     route = get_object_or_404(Route, pk=pk_route)
     if request.method == 'POST':
         form = AnecdoteForm(request.POST)
         if form.is_valid():
-            a = Anecdote(route=route, anecdote=form.cleaned_data['anecdote'], source=form.cleaned_data['source'], isValidated=False)
+            a = Anecdote(route=route, anecdote=form.cleaned_data['anecdote'],
+                         source=form.cleaned_data['source'], isValidated=False)
             a.save()
-            return HttpResponseRedirect(reverse('crags:route_index', args=[pk_crag, pk_route]))
+            return HttpResponseRedirect(reverse('crags:route_detail', args=[pk_crag, pk_route]))
 
     else:
         form = AnecdoteForm()
 
     return render(request, 'crags/anecdote_create.html', {'form': form, 'route': route})
 
+
+def add_name_story_view(request, pk_crag, pk_route):
+    route = get_object_or_404(Route, pk=pk_route)
+    if request.method == 'POST':
+        form = NameStoryForm(request.POST)
+        if form.is_valid():
+            n = NameStory(route=route, story=form.cleaned_data['story'],
+                          source=form.cleaned_data['source'], isValidated=False)
+            n.save()
+            return HttpResponseRedirect(reverse('crags:route_detail', args=[pk_crag, pk_route]))
+
+    else:
+        form = NameStoryForm()
+
+    return render(request, 'crags/name_story_create.html', {'form': form, 'route': route})
+
+
+def add_crag_view(request):
+    if request.method == 'POST':
+        form = CragForm(request.POST)
+        if form.is_valid():
+            n = Crag(name=form.cleaned_data['name'], country=form.cleaned_data['country'], isValidated=False)
+            n.save()
+            return HttpResponseRedirect(reverse('crags:crags_index'))
+
+    else:
+        form = CragForm()
+
+    return render(request, 'crags/crag_create.html', {'form': form})
+
+
+def add_route_view(request, pk_crag):
+    crag = get_object_or_404(Crag, pk=pk_crag)
+    if request.method == 'POST':
+        form = RouteForm(request.POST)
+        if form.is_valid():
+            n = Route(name=form.cleaned_data['name'], crag=crag, type=form.cleaned_data['type'],
+                      openIn=form.cleaned_data['openIn'], description=form.cleaned_data['description'],
+                      faIn=form.cleaned_data['faIn'], isValidated=False)
+            n.save()
+            return HttpResponseRedirect(reverse('crags:route_detail', args=[pk_crag, n.id]))
+
+    else:
+        form = RouteForm()
+
+    return render(request, 'crags/route_create.html', {'form': form, 'crag': crag})

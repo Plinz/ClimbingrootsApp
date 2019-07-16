@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{{ route.name|title }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'crags/css/main.css' %}">
+		<noscript>
+            {% load static %}
+            <link rel="stylesheet" href="{% static 'crags/css/noscript.css' %}" />
+        </noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+                    <section class="wrapper style1 align-center fullscreen">
+						<div class="inner">
+							<h2>Nouvelle histoire</h2>
+							<p>Création d'une nouvelle histoire pour la voie <em>{{ route.name|title }}</em></p>
+                            <div class="index align-left">
+                                <section>
+                                    <div class="content">
+                                        <form method="post" action="{% url 'crags:name_story_create' route.crag_id route.id %}">
+                                            <div class="fields">
+                                            {% csrf_token %}
+                                            {{ form }}
+                                            </div>
+                                            <p class="major">Attention votre histoire ne sera pas visible sur le site avant vérification</p>
+                                            <ul class="actions"><input type="submit" value="Ajouter"></ul>
+                                        </form>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+            {% load static %}
+			<script src="{% static 'crags/js/jquery.min.js' %}"></script>
+            {% load static %}
+			<script src="{% static 'crags/js/jquery.scrollex.min.js' %}"></script>
+            {% load static %}
+			<script src="{% static 'crags/js/jquery.scrolly.min.js' %}"></script>
+            {% load static %}
+			<script src="{% static 'crags/js/browser.min.js' %}"></script>
+            {% load static %}
+			<script src="{% static 'crags/js/breakpoints.min.js' %}"></script>
+            {% load static %}
+			<script src="{% static 'crags/js/util.js' %}"></script>
+            {% load static %}
+			<script src="{% static 'crags/js/main.js' %}"></script>
+            {% load static %}
+
+	</body>
+</html>
