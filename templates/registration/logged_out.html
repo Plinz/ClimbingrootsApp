@@ -1,0 +1,12 @@
+{% extends "crags/base.html" %}
+
+{% block title %}Déconnexion{% endblock %}
+
+{% block content %}
+<section class="wrapper style1 align-center fullscreen">
+    <div class="inner">
+        <h3>Déconnecté</h3>
+        <a href="{% url 'login'%}">Click here to login again.</a>
+    </div>
+</section>
+{% endblock %}

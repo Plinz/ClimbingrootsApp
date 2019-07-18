@@ -6,6 +6,7 @@ from django import forms
 from .models import Crag, Route, NameStory, Anecdote
 from crags.enums import RouteType, Grade
 from django_countries.fields import CountryField
+from django.contrib.auth.decorators import login_required
 
 
 class HomeView(generic.TemplateView):
@@ -51,11 +52,6 @@ class DetailAnecdoteView(generic.DetailView):
     model = Anecdote
 
 
-class CreateAnecdoteView(generic.DetailView):
-    model = Route
-    template_name = 'crags/anecdote_create.html'
-
-
 class DetailNameStoryView(generic.DetailView):
     model = NameStory
 #   template_name = 'stories/name_story_detail.html'
@@ -84,6 +80,7 @@ class RouteForm(forms.Form):
     faIn = forms.DateField(label='Date de première ascension', widget=forms.SelectDateWidget)
 
 
+@login_required
 def add_anecdote_view(request, pk_crag, pk_route):
     route = get_object_or_404(Route, pk=pk_route)
     if request.method == 'POST':
@@ -100,6 +97,7 @@ def add_anecdote_view(request, pk_crag, pk_route):
     return render(request, 'crags/anecdote_create.html', {'form': form, 'route': route})
 
 
+@login_required
 def add_name_story_view(request, pk_crag, pk_route):
     route = get_object_or_404(Route, pk=pk_route)
     if request.method == 'POST':
@@ -116,6 +114,7 @@ def add_name_story_view(request, pk_crag, pk_route):
     return render(request, 'crags/name_story_create.html', {'form': form, 'route': route})
 
 
+@login_required
 def add_crag_view(request):
     if request.method == 'POST':
         form = CragForm(request.POST)
@@ -130,6 +129,7 @@ def add_crag_view(request):
     return render(request, 'crags/crag_create.html', {'form': form})
 
 
+@login_required
 def add_route_view(request, pk_crag):
     crag = get_object_or_404(Crag, pk=pk_crag)
     if request.method == 'POST':

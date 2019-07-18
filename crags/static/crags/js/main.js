@@ -20,6 +20,16 @@
 			xxsmall:  [ null,      '360px'  ]
 		});
 
+		document.addEventListener("DOMContentLoaded", () => {
+			const rows = document.querySelectorAll("tr[data-href]");
+
+			rows.forEach(row => {
+				row.addEventListener("click", () => {
+					window.location.href = row.dataset.href;
+				});
+			});
+		});
+
 	// Play initial animations on page load.
 		$window.on('load', function() {
 			window.setTimeout(function() {

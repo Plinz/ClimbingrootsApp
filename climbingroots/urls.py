@@ -20,4 +20,5 @@ urlpatterns = [
     path('', include('crags.urls')),
     path('admin/', admin.site.urls),
     path('climbers/', include('climbers.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
