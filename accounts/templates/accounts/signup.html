@@ -1,0 +1,16 @@
+{% extends 'crags/base.html' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+    <section class="wrapper style1 align-center fullscreen">
+        <div class="inner">
+            <h2>Inscription</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Valider</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

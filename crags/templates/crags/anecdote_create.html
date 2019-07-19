@@ -1,3 +1,5 @@
+{% load i18n %}
+
 {% extends "crags/base.html" %}
 
 {% block title %}{{ route.name|title }}{% endblock %}
@@ -5,8 +7,8 @@
 {% block content %}
     <section class="wrapper style1 align-center fullscreen">
         <div class="inner">
-            <h2>Nouvelle anecdote</h2>
-            <p>Création d'une nouvelle anecdote pour la voie <em>{{ route.name|title }}</em></p>
+            <h2>{% trans "New anecdote" %}</h2>
+            <p>{% trans "Creation of new anecdote for the route" %}<em>{{ route.name|title }}</em></p>
             <div class="index align-left">
                 <section>
                     <div class="content">
@@ -15,7 +17,7 @@
                             {% csrf_token %}
                             {{ form }}
                             </div>
-                            <p class="major">Attention votre anecdote ne sera pas visible sur le site avant vérification</p>
+                            <p class="major">{% trans "Attention your anecdote will not be visible on the site before verification" %}</p>
                             <ul class="actions"><input type="submit" value="Ajouter"></ul>
                         </form>
                     </div>

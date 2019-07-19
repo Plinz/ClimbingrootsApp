@@ -1,14 +1,15 @@
 from enum import Enum
+from django.utils.translation import gettext_lazy as _
 
 
 class RouteType(Enum):
-    AID = "AID"
-    ALPIN = "ALPIN"
-    BIGWALL = "BIGWALL"
-    BOULDER = "BOULDER"
-    DWS = "DWS"
-    MULTIPITCH = "MULTIPITCH"
-    SPORT = "SPORT"
+    AID = _("AID")
+    ALPIN = _("ALPIN")
+    BIGWALL = _("BIGWALL")
+    BOULDER = _("BOULDER")
+    DWS = _("DWS")
+    MULTIPITCH = _("MULTIPITCH")
+    SPORT = _("SPORT")
 
     @classmethod
     def choices(cls):

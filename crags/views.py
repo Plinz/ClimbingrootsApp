@@ -7,7 +7,7 @@ from .models import Crag, Route, NameStory, Anecdote
 from crags.enums import RouteType, Grade
 from django_countries.fields import CountryField
 from django.contrib.auth.decorators import login_required
-
+from django.utils.translation import gettext_lazy as _
 
 class HomeView(generic.TemplateView):
     template_name = 'crags/home.html'
@@ -58,26 +58,26 @@ class DetailNameStoryView(generic.DetailView):
 
 
 class AnecdoteForm(forms.Form):
-    anecdote = forms.CharField(label='Anecdote', max_length=5000, widget=forms.Textarea)
-    source = forms.CharField(label='Source', max_length=500)
+    anecdote = forms.CharField(label=_("Anecdote"), max_length=5000, widget=forms.Textarea)
+    source = forms.CharField(label=_("Source"), max_length=500)
 
 
 class NameStoryForm(forms.Form):
-    story = forms.CharField(label='Histoire', max_length=5000, widget=forms.Textarea)
-    source = forms.CharField(label='Source', max_length=500)
+    story = forms.CharField(label=_("Story"), max_length=5000, widget=forms.Textarea)
+    source = forms.CharField(label=_("Source"), max_length=500)
 
 
 class CragForm(forms.Form):
-    name = forms.CharField(label='Nom', max_length=500)
+    name = forms.CharField(label=_("Name"), max_length=500)
     country = CountryField().formfield()
 
 
 class RouteForm(forms.Form):
-    name = forms.CharField(label='Nom', max_length=500)
-    type = forms.ChoiceField(label='Type', choices=RouteType.choices())
-    description = forms.CharField(label='Description', max_length=5000, widget=forms.Textarea)
-    openIn = forms.DateField(label='Date d\'ouverture', widget=forms.SelectDateWidget)
-    faIn = forms.DateField(label='Date de première ascension', widget=forms.SelectDateWidget)
+    name = forms.CharField(label=_("Name"), max_length=500)
+    type = forms.ChoiceField(label=_("Type"), choices=RouteType.choices())
+    description = forms.CharField(label=_("Description"), max_length=5000, widget=forms.Textarea)
+    openIn = forms.DateField(label=_("Opening date"), widget=forms.SelectDateWidget)
+    faIn = forms.DateField(label=_("First ascent date"), widget=forms.SelectDateWidget)
 
 
 @login_required
