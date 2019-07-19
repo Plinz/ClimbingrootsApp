@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-19 16:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\crags\enums.py:6
+msgid "AID"
+msgstr ""
+
+#: .\crags\enums.py:7
+msgid "ALPIN"
+msgstr ""
+
+#: .\crags\enums.py:8
+msgid "BIGWALL"
+msgstr ""
+
+#: .\crags\enums.py:9
+msgid "BOULDER"
+msgstr ""
+
+#: .\crags\enums.py:10
+msgid "DWS"
+msgstr ""
+
+#: .\crags\enums.py:11
+msgid "MULTIPITCH"
+msgstr ""
+
+#: .\crags\enums.py:12
+msgid "SPORT"
+msgstr ""
+
+#: .\crags\templates\crags\anecdote_create.html:10
+msgid "New anecdote"
+msgstr ""
+
+#: .\crags\templates\crags\anecdote_create.html:11
+msgid "Creation of new anecdote for the route"
+msgstr ""
+
+#: .\crags\templates\crags\anecdote_create.html:20
+msgid ""
+"Attention your anecdote will not be visible on the site before verification"
+msgstr ""
+
+#: .\crags\templates\crags\base.html:23
+msgid "Crags"
+msgstr ""
+
+#: .\crags\templates\crags\base.html:26
+msgid "Back"
+msgstr ""
+
+#: .\crags\templates\crags\base.html:28
+msgid "Logout"
+msgstr ""
+
+#: .\crags\templates\crags\base.html:30
+msgid "Login"
+msgstr ""
+
+#: .\crags\templates\crags\base.html:31
+msgid "Sign up"
+msgstr ""
+
+#: .\crags\views.py:61
+msgid "Anecdote"
+msgstr ""
+
+#: .\crags\views.py:62 .\crags\views.py:67
+msgid "Source"
+msgstr ""
+
+#: .\crags\views.py:66
+msgid "Story"
+msgstr ""
+
+#: .\crags\views.py:71 .\crags\views.py:76
+msgid "Name"
+msgstr ""
+
+#: .\crags\views.py:77
+msgid "Type"
+msgstr ""
+
+#: .\crags\views.py:78
+msgid "Description"
+msgstr ""
+
+#: .\crags\views.py:79
+msgid "Opening date"
+msgstr ""
+
+#: .\crags\views.py:80
+msgid "First ascent date"
+msgstr ""
