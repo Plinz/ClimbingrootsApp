@@ -19,93 +19,93 @@ msgstr ""
 
 #: .\crags\enums.py:6
 msgid "AID"
-msgstr ""
+msgstr "Artif"
 
 #: .\crags\enums.py:7
 msgid "ALPIN"
-msgstr ""
+msgstr "Alpin"
 
 #: .\crags\enums.py:8
 msgid "BIGWALL"
-msgstr ""
+msgstr "Bigwall"
 
 #: .\crags\enums.py:9
 msgid "BOULDER"
-msgstr ""
+msgstr "Bloc"
 
 #: .\crags\enums.py:10
 msgid "DWS"
-msgstr ""
+msgstr "Deep Water Soloing"
 
 #: .\crags\enums.py:11
 msgid "MULTIPITCH"
-msgstr ""
+msgstr "Grande Voie"
 
 #: .\crags\enums.py:12
 msgid "SPORT"
-msgstr ""
+msgstr "Sportif"
 
 #: .\crags\templates\crags\anecdote_create.html:10
 msgid "New anecdote"
-msgstr ""
+msgstr "Nouvelle anecdote"
 
 #: .\crags\templates\crags\anecdote_create.html:11
 msgid "Creation of new anecdote for the route"
-msgstr ""
+msgstr "Création d'une nouvelle anecdote pour la voie"
 
 #: .\crags\templates\crags\anecdote_create.html:20
 msgid ""
 "Attention your anecdote will not be visible on the site before verification"
-msgstr ""
+msgstr "Attention votre anecdote ne sera pas visible sur le site avant vérification !"
 
 #: .\crags\templates\crags\base.html:23
 msgid "Crags"
-msgstr ""
+msgstr "Falaises"
 
 #: .\crags\templates\crags\base.html:26
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: .\crags\templates\crags\base.html:28
 msgid "Logout"
-msgstr ""
+msgstr "Déconnexion"
 
 #: .\crags\templates\crags\base.html:30
 msgid "Login"
-msgstr ""
+msgstr "Connection"
 
 #: .\crags\templates\crags\base.html:31
 msgid "Sign up"
-msgstr ""
+msgstr "Inscription"
 
 #: .\crags\views.py:61
 msgid "Anecdote"
-msgstr ""
+msgstr "Anecdote"
 
 #: .\crags\views.py:62 .\crags\views.py:67
 msgid "Source"
-msgstr ""
+msgstr "Source"
 
 #: .\crags\views.py:66
 msgid "Story"
-msgstr ""
+msgstr "Histoire"
 
 #: .\crags\views.py:71 .\crags\views.py:76
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: .\crags\views.py:77
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: .\crags\views.py:78
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: .\crags\views.py:79
 msgid "Opening date"
-msgstr ""
+msgstr "Date d'ouverture"
 
 #: .\crags\views.py:80
 msgid "First ascent date"
-msgstr ""
+msgstr "Date de première ascension"

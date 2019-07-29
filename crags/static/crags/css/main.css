@@ -43,13 +43,6 @@
     overflow: hidden;
 }
 
-#headerBar img {
-    max-height: 100%;
-    height: auto;
-    width: auto;
-    margin:auto;
-}
-
 tr[data-href] {
 	cursor: pointer;
 }
